@@ -59,7 +59,7 @@ router.post('/remove', isLoggedIn, async (req, res) => {
       return res.status(500).send({ err: 'Please try again later' });
     }
 
-    return res.send({ msg: 'Successfully deleted an Exercise' });
+    return res.send({ msg: 'Successfully deleted a post' });
   } catch (err) {
     return res.status(500).send({ err: 'A server issue has occured - please try again later' });
   }

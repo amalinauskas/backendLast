@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const UserRoutes = require('./routes/v1/users');
-const PetsRoutes = require('./routes/v1/pets');
+// const PetsRoutes = require('./routes/v1/pets');
 const LogsRoutes = require('./routes/v1/logs');
 
 const { serverPort } = require('./config');
