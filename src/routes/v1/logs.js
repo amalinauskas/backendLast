@@ -16,7 +16,9 @@ const postSchema = Joi.object({
 router.get('/', isLoggedIn, async (req, res) => {
   try {
     const con = await mysql.createConnection(mysqlConfig);
-    const [data] = await con.execute(`SELECT * FROM post WHERE user_id = ${req.user.accountId}`);
+    const [data] = await con.execute(
+      `SELECT * FROM post WHERE user_id = ${req.user.accountId} ORDER BY created_at DESC`,
+    );
     await con.end();
 
     return res.send(data);
