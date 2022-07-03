@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const UserRoutes = require('./routes/v1/users');
-// const PetsRoutes = require('./routes/v1/pets');
 const LogsRoutes = require('./routes/v1/logs');
 
 const { serverPort } = require('./config');
@@ -15,20 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/v1/users/', UserRoutes);
-// app.use('/v1/pets/', PetsRoutes);
 app.use('/v1/logs/', LogsRoutes);
-
-// Delete
-
-// app.post('/delete',(req, res) => {
-//   let q = "DELETE FROM logs WHERE id=?";
-//   let x = [req.body.id];
-//   connection.query(q,x,function(err,results){
-//       if(err) throw err;
-//       res.redirect("/v1/logs/");
-// });
-
-//
 
 app.all('*', (req, res) => {
   res.status(404).send({ err: 'Page not found' });
